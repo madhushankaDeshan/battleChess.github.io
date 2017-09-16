@@ -1,0 +1,73 @@
+/*#title{*/
+    /*height: 80px;*/
+    /*text-align: center;*/
+    /*color: #d14c61;*/
+    /*font-size: 25px;*/
+    /*border: ridge;*/
+    /*font-weight:bold;*/
+
+
+
+/*}*/
+#backgroundImage{
+    
+}
+/*.col-9{*/
+    /*border-style: solid;*/
+/*}*/
+#main{
+    /*float: left;*/
+    top: 165px;
+    bottom: 100px;
+    margin: 0px;
+    padding-top: 0px;
+    position: absolute;
+    left: 250px;
+    border:  30px groove rgba(10,12,8,0.86);
+    margin: 20px;
+    height: 685px;
+    width: 685px;
+}
+/*#backgroundImage{*/
+    /*height: 200px;*/
+    /*width: 668px;*/
+
+/*}*/
+.col-1{
+    height: 80px;
+    width: 80px;
+    float: left;
+}
+.l{
+    top: 30px;
+}
+img{
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+}
+.chess{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    z-index: 9999;
+}
+.chess:hover{
+    position: absolute;
+    height: 83px;
+    width: 83px;
+    z-index: 9999;
+    padding: 5px;
+}
+.selectpath{
+    box-shadow: inset 0px 0px 6px 10px rgba(50, 233, 59, .8);
+}
+.clickpiece{
+    box-shadow: inset 0px 0px 6px 10px rgba(50, 2, 59, .8);
+}
+.crosspiece{
+    cursor: pointer;
+    box-shadow: inset 0px 0px 6px 10px rgba(230, 50, 59, .8);
+}
+
