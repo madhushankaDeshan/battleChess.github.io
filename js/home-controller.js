@@ -64,7 +64,58 @@ function pathofBlackPown(eventData) {
     }
 
 }
+// ========================path of blackBishop=========================
+function pathofBlackBishop(eventData) {
+    cPosition=eventData;
+    sq.removeClass('selectpath');
+    clickAudio2();
+    chesspiece.removeClass('clickpiece');
+    // console.log("eththrthjrt");
+    var cId=cPosition.parents().attr('id');
+    var letter=cId.charAt(0);
+    var nu=cId.charAt(1);
+    var lArrayPosition=($.inArray(letter,letters));
+    var nArrayPosition=($.inArray(parseInt(nu),numbers));
+    var tempId=letters[lArrayPosition+1]+numbers[nArrayPosition];
+    var tempId1=letters[lArrayPosition+1]+numbers[nArrayPosition+1];
+    var tempId2=letters[lArrayPosition-1]+numbers[nArrayPosition+1];
+    var x=lArrayPosition;
+    var s=nArrayPosition;
 
+    for (var y=nArrayPosition+1;y<4;y++) {
+        for (var w = nArrayPosition + 1; w < 4; w++) {
+            tempId = letters[w] + numbers[y];
+            if (!($('#' + tempId).children().hasClass('chesspieces'))) {
+                $("#" + tempId).addClass('selectpath');
+                cPosition.addClass('clickpiece');
+            }
+            else {
+                break;
+            }
+
+        }
+        if (!($("#" + tempId).children().hasClass('chesspieces'))) {
+            $("#" + tempId).addClass('selectpath');
+            cPosition.addClass('clickpiece');
+            cPosition.removeClass('selectpath');
+        }
+        if ($("#" + tempId1).children().hasClass('white')) {
+            $("#" + tempId1).addClass('crosspiece');
+            cPosition.addClass('clickpiece');
+            cPosition.removeClass('selectpath');
+
+        }
+        if ($("#" + tempId2).children().hasClass('white')) {
+            $("#" + tempId2).addClass('crosspiece');
+            cPosition.addClass('clickpiece');
+            cPosition.removeClass('selectpath');
+
+        }
+    }
+
+
+
+}
 // =============path of blackking================
 function pathofBlackKing(eventData) {
     cPosition=eventData;
@@ -963,6 +1014,32 @@ $('.chesspieces').on("click",function (eventData) {
         pownCount=0;
         pathofWhiteKing(cPosition);
     }
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('blackbishop')){
+        pownCount=0;
+        pathofBlackBishop(cPosition);
+    }
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('whitebishop')){
+        pownCount=0;
+        pathofWhiteBishop(cPosition);
+    }
+
+
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('blackqueen')){
+        pownCount=0;
+        pathofBlackRook(cPosition);
+    }
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('whitequeen')){
+        pownCount=0;
+        pathofWhiteRook(cPosition);
+    }
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('whitequeen')){
+        pownCount=0;
+        pathofWhiteBishop(cPosition);
+    }
+    if (!(cPosition.hasClass('clickpiece')) && cPosition.hasClass('blackqueen')){
+        pownCount=0;
+        pathofBlackBishop(cPosition);
+    }
 
 });
 
@@ -983,7 +1060,7 @@ $(".s").on("click",function (eventData) {
     }
     if($(currentS).hasClass('crosspiece')){
         var y=$(currentPiece).clone();
-        $(currentPiece).remove();
+        // $(currentPiece).remove();
         $(currentS).children().remove();
         currentS.append(currentPiece);
         sq.removeClass('selectpath');
